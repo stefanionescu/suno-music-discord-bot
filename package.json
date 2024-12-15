@@ -1,0 +1,47 @@
+{
+  "name": "suno-discord-bot",
+  "version": "1.0.0",
+  "description": "A discord bot that converts text, images and videos into AI generated songs",
+  "main": "index.js",
+  "scripts": {
+    "start-heroku": "node ./deploy-commands.js && pm2-runtime start ecosystem.config.js",
+    "start-local-no-docker": "node ./index.js && node ./deploy-commands.js",
+    "start-local-with-docker": "node ./deploy-commands.js",
+    "stop-heroku": "pm2 stop suno-discord-bot && pm2 delete suno-discord-bot && pm2 save",
+    "lint": "eslint .",
+    "deploy-commands": "node ./deploy-commands.js"
+  },
+  "keywords": [
+    "ai",
+    "songs",
+    "llm"
+  ],
+  "author": "Stefan Ionescu, @stefanionescu",
+  "license": "ISC",
+  "dependencies": {
+    "@coffeeandfun/google-profanity-words": "^2.1.0",
+    "@supabase/supabase-js": "2.44.2",
+    "axios": "^1.7.2",
+    "base64-arraybuffer": "^1.0.2",
+    "canvas": "^2.11.2",
+    "cluster": "0.7.7",
+    "discord.js": "14.15.3",
+    "dotenv": "16.4.5",
+    "file-type": "^19.3.0",
+    "fluent-ffmpeg": "^2.1.3",
+    "get-audio-duration": "^4.0.1",
+    "gif-frames": "^1.0.1",
+    "is-animated": "^2.0.2",
+    "jsonwebtoken": "9.0.2",
+    "mime-types": "2.1.35",
+    "node-fetch": "3.3.2",
+    "node-schedule": "^2.1.1",
+    "pm2": "5.4.1",
+    "posthog-node": "^4.0.1",
+    "redis": "4.6.14",
+    "sharp": "^0.33.5"
+  },
+  "devDependencies": {
+    "eslint": "9.5.0"
+  }
+}
